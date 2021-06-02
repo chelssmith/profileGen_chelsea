@@ -18,10 +18,29 @@ function appMenu() {
   function createManager() {
     console.log("Please build your team");
     inquirer.prompt([
-      //
-      // YOUR CODE HERE:
-      // CREATE OBJECTS OF QUESTIONS HERE FOR MANAGER
-      //
+     {
+       type: "input",
+       name: "managerName",
+       message: "What is your manager's name?",
+     }
+     ,
+     {
+      type: "input",
+      name: "managerId",
+      message: "What is your manager's id number?",
+     }
+     ,
+     {
+      type: "input",
+      name: "managerEmail",
+      message: "What is your manager's email address?",
+     }
+     ,
+     {
+      type: "input",
+      name: "managerOfficeNumber",
+      message: "What is your manager's office number?",
+     }
     ]).then(answers => {
       const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerOfficeNumber);
       teamMembers.push(manager);
@@ -59,11 +78,35 @@ function appMenu() {
 
   function addEngineer() {
     inquirer.prompt([
-      //
-      // YOUR CODE HERE
-      // CREATE OBJECTS OF QUESTIONS FOR ENGINEER
-      //
+        {
+          type: "input",
+          name: "engineerName",
+          message: "What is your engineer's name?",
+        }
+        ,
+        {
+         type: "input",
+         name: "engineerId",
+         message: "What is your engineer's id number?",
+        }
+        ,
+        {
+         type: "input",
+         name: "engineerEmail",
+         message: "What is your engineer's email address?",
+        }
+        ,
+        {
+         type: "input",
+         name: "engineerGithub",
+         message: "What is your Github username?",
+        }
     ]).then(answers => {
+      const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
+      teamMembers.push(engineer);
+      idArray.push(answers.engineerId);
+
+
       //
       // YOUR CODE HERE
       // 1. CREATE A VARIABLE TO STORE THE ENGINEER OBJECT INSTANTIATED WITH THE ENGINEER CLASS, PASSING ANSWERS PROPERTIES AS INPUT AURGUMENTS 
@@ -78,11 +121,38 @@ function appMenu() {
 
   function addIntern() {
     inquirer.prompt([
+      {
+        type: "input",
+        name: "internName",
+        message: "What is your intern's name?",
+      }
+      ,
+      {
+       type: "input",
+       name: "internId",
+       message: "What is your intern's id number?",
+      }
+      ,
+      {
+       type: "input",
+       name: "internEmail",
+       message: "What is your intern's email address?",
+      }
+      ,
+      {
+       type: "input",
+       name: "internSchool",
+       message: "What is your intern's school?",
+      }
       //
       // YOUR CODE HERE
       // CREATE OBJECTS OF QUESTIONS FOR ENGINEER
       //
     ]).then(answers => {
+      const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
+      teamMembers.push(intern);
+      idArray.push(answers.internId);
+
       //
       // YOUR CODE HERE
       // 1. CREATE A VARIABLE TO STORE THE INTERN OBJECT INSTANTIATED WITH THE INTERN CLASS, PASSING ANSWERS PROPERTIES AS INPUT AURGUMENTS 
